@@ -1,0 +1,139 @@
+.footer-container {
+  width: 100%;
+  font-family: sans-serif;
+}
+
+/* Sección Superior */
+.footer-top {
+  background-color: #333642;
+  color: white;
+  display: flex;
+  padding: 40px 20px;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.footer-logo {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-logo-large {
+  width: 300px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.footer-links {
+  display: flex;
+  flex: 3;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.footer-column {
+  min-width: 150px;
+}
+
+.footer-column h4, .footer-column h5 {
+  color: #A2B9E4;
+  margin-bottom: 10px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column li {
+  color: #ccc;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.footer-column li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-column li a:hover {
+  color: #ffffff;
+}
+
+/* Sección Media */
+.footer-middle {
+  background-color: #333642;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px;
+  flex-wrap: wrap;
+  gap: 20px;
+  text-align: center;
+}
+
+.payment-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.payment-logos img {
+  width: 60px;
+  height: auto;
+}
+
+/* Sección Inferior */
+.footer-bottom {
+  background-color: #FBE587;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer-bottom-logo img.footer-logo-small {
+  width: 150px;
+  height: auto;
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-bottom-links a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.footer-bottom-links a:hover {
+  color: #000;
+}
+
+.footer-social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-social-icons img {
+  width: 40px;
+  height: auto;
+}

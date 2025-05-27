@@ -1,0 +1,154 @@
+.register-content {
+  --background: #ffffff;
+}
+
+.register-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 1rem;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden; 
+}
+
+.register-form {
+  flex: 1;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.register-form h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  color: #000;
+}
+
+.register-form .highlight {
+  color: #f7c700;
+}
+
+.register-form p {
+  color:#000;  
+  text-align: center;
+  font-size: 0.95rem;
+  margin: 2rem 0;
+}
+
+
+.register-input {
+  margin-bottom: 12px;
+  padding: 0; /* Ionic maneja el padding interno con sus variables */
+  background-color: #fff;
+  border: 2px solid #f7c700;
+  border-radius: 20px;
+  font-size: 1rem;
+  box-shadow: 0 4px 2px -2px #f7c700;
+  width: 100%;
+  color: #000;
+  box-sizing: border-box;
+  --placeholder-color: #000;
+  --placeholder-opacity: 0.8;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 10px; 
+  --padding-bottom: 10px;
+  --color: #000;
+}
+
+.register-input input {
+  border: none;
+  outline: none;
+  width: 100%;
+  background: transparent;
+  font-size: 1rem;
+  color: #000;
+}
+
+.register-input input::placeholder {
+  color: #000;
+  opacity: 0.8;
+}
+
+.register-input ion-datetime-button {
+  --color: #000;
+}
+
+
+.register-input input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1); 
+}
+
+
+.add-pet-button {
+  --background: #f7c700;
+  --color: white;
+  border-radius: 10px;
+  margin-top: 10px;
+  text-transform: none;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  margin: 16px 0 8px 0;
+  font-size: 1rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-right: 8px;
+  transform: scale(1.2);
+}
+
+.checkbox-group ion-label,
+.checkbox-group a {
+  color: #000;
+  font-size: 1rem;
+}
+
+.checkbox-group a {
+  margin-left: 4px;
+  color: blue;
+  text-decoration: underline;
+}
+
+.submit-button {
+  --background: #f7c700;
+  --color: white;
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 10px;
+}
+
+.register-image {
+  flex: 1;
+  width: 300px;
+  height: 300px;
+  text-align: center;
+}
+
+.register-image img {
+  width: 600px;
+  height: 600px;
+}
+
+
+.divider-text {
+  text-align: center;
+  color: #000;
+  font-size: 1rem;
+  margin: 1rem 0;
+}
+
+.fech {
+  text-align: center;
+  color: #f7c700; 
+  width: 100%; 
+  display: block;
+  font-size: 17px;  
+}

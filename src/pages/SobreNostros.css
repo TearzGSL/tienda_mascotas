@@ -1,0 +1,84 @@
+
+ion-content {
+  --background: #ffffff;
+}
+
+
+.fondo-blanco {
+  background-color: #ffffff;
+  height: 100vh;
+  overflow-y: auto; 
+  display: flex;
+  flex-direction: column;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.pets-image {
+  width: 570px;
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.text-section {
+  flex: 1;
+  max-width: 600px;
+}
+
+
+.title {
+  color: #f39c12;
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+.subtitle {
+  color: #f39c12;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+
+.description {
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+
+.bottom-section {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.mission,
+.vision {
+  flex: 1;
+  min-width: 280px;
+  max-width: 550px;
+}

@@ -1,0 +1,117 @@
+/* src/pages/Login.css */
+
+html, body, ion-app, ion-content {
+  height: 100%;
+}
+
+.login-content {
+  --background: #ffffff !important;
+}
+
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.login-box {
+  background-color: #ffe066;
+  padding: 2rem;
+  border-radius: 25px;
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.login-logo {
+  width: 150px;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.login-input {
+  width: 100%;
+  margin: 0.5rem 0;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --background: #ffffff;
+  --color: #000000;
+  --placeholder-color: #888;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Ícono de mostrar/ocultar contraseña en gris */
+.login-input ion-icon {
+  color: #666 !important;
+}
+
+.forgot-password {
+  align-self: flex-start;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.login-button {
+  --background: #ffd000;
+  color: #000;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.or-text {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.social-login {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-login img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 8px;
+  background: white;
+  padding: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.create-account {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  cursor: pointer;
+  color: #444;
+}
+
+.password-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+}

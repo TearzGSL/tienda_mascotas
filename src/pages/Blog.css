@@ -1,0 +1,124 @@
+.fondo-blanco {
+  background-color: #ffffff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.contenedor-central {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem 1rem 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titulo, .tabs, .comentarios {
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+}
+
+.titulo {
+  color: #7d89cc;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.tabs {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  font-weight: bold;
+  justify-content: center;
+}
+
+.tab {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  color: #444;
+  border-bottom: 2px solid transparent;
+}
+
+.tab.activo {
+  border-color: #7d89cc;
+  color: #7d89cc;
+}
+
+.comentarios {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0 1rem;
+  align-items: center;
+}
+
+.comentario-card {
+  border: 2px solid #f4c542;
+  border-radius: 12px;
+  padding: 1rem;
+  background-color: #fff;
+  width: 100%;
+  max-width: 700px;
+}
+
+.contenido-comentario {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.usuario-info {
+  display: flex;
+  gap: 1rem;
+  flex: 1;
+  min-width: 250px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.nombre {
+  font-weight: bold;
+  margin: 0;
+}
+
+.tiempo {
+  font-size: 0.8rem;
+  color: gray;
+  margin-left: 0.5rem;
+}
+
+.estrellas {
+  color: #f4c542;
+  font-size: 1rem;
+  margin: 0.2rem 0;
+}
+
+.titulo-comentario {
+  font-weight: bold;
+  margin: 0.3rem 0;
+}
+
+.texto-comentario {
+  color: #333;
+  margin: 0;
+}
+
+.imagen-mascota {
+  width: 100px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.footer-separado {
+  margin-top: 40px; 
+}
