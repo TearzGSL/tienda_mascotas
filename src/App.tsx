@@ -10,6 +10,9 @@ import Productos from './pages/Productos';
 import Sucursales from './pages/Sucursales';
 import AdminTools from './backend/AdminTools';
 import CupcakeDetail from './products/CupcakeDetail'; 
+import PrivateRoute from './backend/PrivateRoute';
+import Carrito from './pages/Carrito';
+import Pagar from './pages/Pagar';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -63,6 +66,8 @@ const App: React.FC = () => (
         <Route exact path="/producto/:slug">
           <CupcakeDetail />
         </Route>
+        <PrivateRoute exact path="/carrito" component={Carrito} />
+        <PrivateRoute exact path="/pagar" component={Pagar} />
         <Route exact path="/">
           <Redirect to="/home" />
         </Route>

@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { auth } from "../backend/firebaseConfig"; // tu instancia firebase ya configurada
+import { auth } from "../backend/firebaseConfig"; 
 import { User, onAuthStateChanged, signOut } from "firebase/auth";
 
 interface AuthContextType {

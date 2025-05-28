@@ -5,17 +5,22 @@ import {
   IonButton,
   IonIcon,
   IonSpinner,
+  IonAlert
 } from '@ionic/react';
 import { star, starHalf, starOutline } from 'ionicons/icons';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../backend/firebaseConfig';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import './CupcakeDetail.css';
 
 import HeaderHome from "../components/HeaderHome";
 import FooterHome from '../components/FooterHome';
 
+import { useCart } from '../backend/CartContext';
+import { useAuth } from '../backend/AuthContext';
+
 interface Producto {
+  id?: string;  // id ahora opcional
   nombre: string;
   descripcion: string;
   imagen: string;
@@ -29,6 +34,11 @@ const CupcakeDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const [producto, setProducto] = useState<Producto | null>(null);
   const [loading, setLoading] = useState(true);
+  const [showLoginAlert, setShowLoginAlert] = useState(false);
+
+  const { addToCart } = useCart();
+  const { user } = useAuth();
+  const history = useHistory();
 
   useEffect(() => {
     const fetchProducto = async () => {
@@ -44,7 +54,8 @@ const CupcakeDetail: React.FC = () => {
 
         if (!querySnapshot.empty) {
           const doc = querySnapshot.docs[0];
-          setProducto(doc.data() as Producto);
+          const data = doc.data() as Omit<Producto, 'id'>;
+          setProducto({ id: doc.id, ...data });
         } else {
           setProducto(null);
         }
@@ -58,6 +69,30 @@ const CupcakeDetail: React.FC = () => {
 
     fetchProducto();
   }, [slug]);
+
+  const handleAddToCart = () => {
+    if (!user) {
+      setShowLoginAlert(true);
+      return;
+    }
+    if (producto && producto.id) {
+      addToCart({
+        id: producto.id,
+        nombre: producto.nombre,
+        precio: producto.precio,
+        imagen: producto.imagen,
+        cantidad: 1,
+      });
+    }
+  };
+
+  const handleBuyNow = () => {
+    if (!user) {
+      setShowLoginAlert(true);
+      return;
+    }
+    alert('Función de compra próximamente');
+  };
 
   const renderStars = () => {
     if (!producto) return null;
@@ -115,13 +150,33 @@ const CupcakeDetail: React.FC = () => {
                 </div>
                 <p className="product-description">{producto.descripcion}</p>
                 <div className="product-actions">
-                  <IonButton color="primary" shape="round">COMPRAR</IonButton>
+                  <IonButton color="primary" shape="round" onClick={handleBuyNow}>
+                    Comprar
+                  </IonButton>
+                  <IonButton
+                    color="secondary"
+                    shape="round"
+                    onClick={handleAddToCart}
+                  >
+                    Añadir al carrito
+                  </IonButton>
                   <span className="price">${producto.precio.toLocaleString()}</span>
                 </div>
               </div>
             </div>
           )}
         </div>
+
+        <IonAlert
+          isOpen={showLoginAlert}
+          onDidDismiss={() => {
+            setShowLoginAlert(false);
+            history.push('/login');
+          }}
+          header="Atención"
+          message="Debes iniciar sesión primero."
+          buttons={['OK']}
+        />
 
         <FooterHome />
       </IonContent>

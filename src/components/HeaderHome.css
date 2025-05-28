@@ -139,3 +139,52 @@
 .nav-icon {
   font-size: 20px;
 }
+
+@media (min-width: 768px) {
+  .header-top-section {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .search-bar-container {
+    max-width: 600px;
+    margin: 0 20px;
+  }
+
+  .user-actions-container {
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+  }
+
+  .header-logo {
+    width: 150px;
+    height: 150px;
+  }
+
+  .nav-list {
+    gap: 40px;
+  }
+
+  .nav-item-content {
+    font-size: 0.85rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header-home {
+    padding: 10px 40px;
+  }
+
+  .search-input {
+    font-size: 1rem;
+  }
+
+  .auth-button {
+    font-size: 1rem;
+  }
+
+  .nav-item-content {
+    font-size: 1rem;
+  }
+}

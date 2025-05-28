@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, MouseEvent as ReactMouseEvent } from 'react';
 import { useHistory } from 'react-router-dom';
 import {
   IonIcon,
@@ -6,6 +6,7 @@ import {
   IonList,
   IonItem,
   IonLabel,
+  IonAlert
 } from '@ionic/react';
 import {
   cartOutline,
@@ -18,17 +19,29 @@ import {
 } from 'ionicons/icons';
 import './HeaderHome.css';
 import { useAuth } from '../backend/AuthContext';
+import { useCart } from '../backend/CartContext';
 
 const HeaderHome: React.FC = () => {
   const history = useHistory();
   const { user, logout } = useAuth();
   const [showPopover, setShowPopover] = useState(false);
   const [event, setEvent] = useState<MouseEvent | undefined>(undefined);
+  const [showLoginAlert, setShowLoginAlert] = useState(false);
+
+  const { productos } = useCart(); // Aquí usas 'productos', no 'cartItems'
 
   const handleLogout = async () => {
     await logout();
     setShowPopover(false);
     history.push('/login');
+  };
+
+  const handleCartClick = () => {
+    if (!user) {
+      setShowLoginAlert(true);
+      return;
+    }
+    history.push('/carrito');
   };
 
   return (
@@ -59,16 +72,18 @@ const HeaderHome: React.FC = () => {
         {/* Acciones de usuario */}
         <div className="user-actions-container">
           {/* Carrito */}
-          <div className="cart-button">
+          <div className="cart-button" onClick={handleCartClick} style={{ cursor: 'pointer' }}>
             <IonIcon icon={cartOutline} className="cart-icon" />
-            <span className="cart-total">$0</span>
+            <span className="cart-total">
+              {productos.length}
+            </span>
           </div>
 
-          {/* Si el usuario está logueado */}
+          {/* Usuario autenticado */}
           {user ? (
             <>
               <button
-                onClick={(e: any) => {
+                onClick={(e: ReactMouseEvent<HTMLButtonElement>) => {
                   setEvent(e.nativeEvent);
                   setShowPopover(true);
                 }}
@@ -115,7 +130,7 @@ const HeaderHome: React.FC = () => {
             { label: 'Blog', icon: newspaperOutline, href: '/blog' },
             { label: 'Sucursales', icon: locationOutline, href: '/sucursales' },
           ].map(({ label, icon, href }) => (
-            <li key={label} className="nav-item" onClick={() => history.push(href)}>
+            <li key={label} className="nav-item" onClick={() => history.push(href)} style={{ cursor: 'pointer' }}>
               <div className="nav-item-content">
                 <IonIcon icon={icon} className="nav-icon" />
                 {label}
@@ -124,9 +139,20 @@ const HeaderHome: React.FC = () => {
           ))}
         </ul>
       </nav>
+
+      {/* Alerta si no está logueado */}
+      <IonAlert
+        isOpen={showLoginAlert}
+        onDidDismiss={() => {
+          setShowLoginAlert(false);
+          history.push('/login');
+        }}
+        header="Atención"
+        message="Debes iniciar sesión primero."
+        buttons={['OK']}
+      />
     </div>
   );
 };
 
 export default HeaderHome;
-
