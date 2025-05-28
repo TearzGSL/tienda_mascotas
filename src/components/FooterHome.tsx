@@ -97,8 +97,8 @@ const FooterHome: React.FC = () => {
         <a href="#" target="_blank" rel="noopener noreferrer">
             <img src="/src/assets/facebook.png" alt="Facebook" />
         </a>
-        <a href="#" target="_blank" rel="noopener noreferrer">
-            <img src="/src/assets/youtube.png" alt="YouTube" />
+        <a href="https://l.instagram.com/?u=http%3A%2F%2Fwa.link%2Fmm7rst&e=AT2E1ZbxyV6yWG2yesixuUktqMDW3UGu4eD32uaOj7sgMBg2b5KwBhnzOzlOMb9Lg9tVgxYlQ_aGMDDps4OMOfG2AUEZlFzZZgr4djGopT6R6xGs" target="_blank" rel="noopener noreferrer">
+            <img src="/src/assets/whatsapp.png" alt="WhatsApp" />
         </a>
         <a href="#" target="_blank" rel="noopener noreferrer">
             <img src="/src/assets/tiktok.png" alt="TikTok" />

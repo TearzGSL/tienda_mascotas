@@ -8,6 +8,8 @@ import SobreNosotros from './pages/SobreNosotros';
 import Blog from './pages/Blog';
 import Productos from './pages/Productos';
 import Sucursales from './pages/Sucursales';
+import AdminTools from './backend/AdminTools';
+import CupcakeDetail from './products/CupcakeDetail'; 
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -25,22 +27,10 @@ import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
-
-/* import '@ionic/react/css/palettes/dark.always.css'; */
-/* import '@ionic/react/css/palettes/dark.class.css'; */
-import '@ionic/react/css/palettes/dark.system.css';
-
 /* Theme variables */
 import './theme/variables.css';
 
 setupIonicReact();
-
 
 const App: React.FC = () => (
   <IonApp>
@@ -66,6 +56,12 @@ const App: React.FC = () => (
         </Route>
         <Route exact path="/sucursales">
           <Sucursales />
+        </Route>
+        <Route exact path="/admin">
+          <AdminTools />
+        </Route>
+        <Route exact path="/producto/:slug">
+          <CupcakeDetail />
         </Route>
         <Route exact path="/">
           <Redirect to="/home" />

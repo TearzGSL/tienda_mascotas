@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { IonPage, IonContent } from '@ionic/react';
 import './Productos.css';
@@ -6,44 +6,19 @@ import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 import HeaderHome from "../components/HeaderHome";
 import FooterHome from '../components/FooterHome';
 
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../backend/firebaseConfig'; 
+
 type Producto = {
-  id: number;
+  id: string;
   nombre: string;
+  descripcion: string;
   imagen: string;
   nuevo: boolean;
   rating: number;
+  precio: number;
+  slug: string;
 };
-
-const productos: Producto[] = [
-  {
-    id: 1,
-    nombre: 'Pastel de cumpleaños',
-    imagen: '/src/assets/pastel.jpg',
-    nuevo: true,
-    rating: 4.5,
-  },
-  {
-    id: 2,
-    nombre: 'Cupcakes',
-    imagen: '/src/assets/cupcakes.jpg',
-    nuevo: true,
-    rating: 0,
-  },
-  {
-    id: 3,
-    nombre: 'Galletas caseritas',
-    imagen: '/src/assets/galletas.jpg',
-    nuevo: false,
-    rating: 0,
-  },
-  {
-    id: 4,
-    nombre: 'Gomitas de colágeno',
-    imagen: '/src/assets/gomas.jpg',
-    nuevo: false,
-    rating: 0,
-  },
-];
 
 const StarRating = ({ rating }: { rating: number }) => {
   const fullStars = Math.floor(rating);
@@ -65,9 +40,39 @@ const StarRating = ({ rating }: { rating: number }) => {
 
 const Productos: React.FC = () => {
   const history = useHistory();
+  const [productos, setProductos] = useState<Producto[]>([]);
 
-  const handleClick = (id: number) => {
-    history.push(`/producto/${id}`);
+  const fetchProductos = async () => {
+    try {
+      const querySnapshot = await getDocs(collection(db, 'productos'));
+      const productosData: Producto[] = [];
+
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        productosData.push({
+          id: doc.id,
+          nombre: data.nombre,
+          descripcion: data.descripcion,
+          imagen: data.imagen,
+          nuevo: data.nuevo,
+          rating: data.rating,
+          precio: data.precio,
+          slug: data.slug
+        });
+      });
+
+      setProductos(productosData);
+    } catch (error) {
+      console.error('Error al obtener productos:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchProductos();
+  }, []);
+
+  const handleClick = (slug: string) => {
+    history.push(`/producto/${slug}`);
   };
 
   return (
@@ -82,7 +87,7 @@ const Productos: React.FC = () => {
             <div
               key={producto.id}
               className="producto-card"
-              onClick={() => handleClick(producto.id)}
+              onClick={() => handleClick(producto.slug)}
               style={{ cursor: 'pointer' }}
             >
               {producto.nuevo && <span className="nuevo-label">¡Nuevo!</span>}
