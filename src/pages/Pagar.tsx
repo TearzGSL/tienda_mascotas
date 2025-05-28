@@ -1,15 +1,8 @@
 import React, { useState, useMemo } from 'react';
-import {
-  IonPage,
-  IonContent,
-  IonInput,
-  IonButton
-} from '@ionic/react';
-
+import {IonPage,IonContent,IonInput,IonButton} from '@ionic/react';
 import { useCart } from '../backend/CartContext';
 import HeaderHome from '../components/HeaderHome';
 import FooterHome from '../components/FooterHome';
-
 import './Pagar.css';
 
 const metodos = [
@@ -65,7 +58,9 @@ const Pagar: React.FC = () => {
               </div>
             ))}
           </div>
-
+          <div className="resumen-total">
+            <h2>Total a pagar: ${total.toLocaleString()}</h2>
+          </div>
           <h3 className="metodo-pago-text">Seleccione su método de pago haciendo click sobre la imagen</h3>
 
           <div className="metodos-pago">

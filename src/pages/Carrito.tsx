@@ -1,37 +1,21 @@
-import React, { useMemo } from 'react';
-import {
-  IonPage,
-  IonContent,
-  IonCard,
-  IonCardContent,
-  IonButton,
-  IonIcon,
-  IonImg,
-  IonInput,
-  IonLabel,
-} from '@ionic/react';
-import {
-  addOutline,
-  removeOutline,
-  cartOutline,
-  trashOutline,
-} from 'ionicons/icons';
-
+import React, { useMemo, useState,  useEffect, MouseEvent as ReactMouseEvent } from 'react';
+import {IonPage,IonContent,IonCard,IonCardContent,IonButton,IonIcon,IonImg,IonInput,IonLabel,} from '@ionic/react';
+import {addOutline,removeOutline,cartOutline,trashOutline,} from 'ionicons/icons';
 import HeaderHome from '../components/HeaderHome';
-import FooterHome from '../components/FooterHome';
-
 import './Carrito.css';
-
 import { useCart } from '../backend/CartContext';
 import { useAuth } from '../backend/AuthContext';
-import { useHistory } from 'react-router-dom'; // ✅ Importar useHistory
+import { useHistory } from 'react-router-dom';
+import { db } from '../backend/firebaseConfig';
+import { doc, getDoc } from 'firebase/firestore';
 
 const Carrito: React.FC = () => {
   const { user } = useAuth();
-  const nombreUsuario = user?.displayName || user?.email || 'Invitado';
+  const [nombreUsuario, setNombreUsuario] = useState('');
+
 
   const { productos, addToCart, removeFromCart, updateQuantity } = useCart();
-  const history = useHistory(); // ✅ Hook para redirección
+  const history = useHistory();
 
   const subtotal = useMemo(() => {
     return productos.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0);
@@ -55,16 +39,31 @@ const Carrito: React.FC = () => {
     removeFromCart(id);
   };
 
-  // ✅ Redirigir al checkout
   const onPagar = () => {
     history.push('/pagar');
   };
+
+  useEffect(() => {
+    const fetchNombre = async () => {
+      if (user) {
+        const docRef = doc(db, 'usuarios', user.uid);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          setNombreUsuario(data.nombres?.trim() || 'Usuario');
+        }
+      }
+    };
+    fetchNombre();
+  }, [user]);
 
   return (
     <IonPage>
       <HeaderHome />
       <IonContent className="ion-padding">
-        <h1 className="titulo-principal">Compras, {nombreUsuario}</h1>
+        <h1 className="titulo-principal">
+          Compras, <span className="usuario-nombre">{nombreUsuario}</span>
+        </h1>
 
         {productos.length === 0 ? (
           <div style={{ textAlign: 'center', marginTop: '4rem' }}>
@@ -88,11 +87,11 @@ const Carrito: React.FC = () => {
                       </p>
                     </IonLabel>
                     <div className="quantity-controls">
-                      <IonButton size="small" onClick={() => onDecrementar(producto.id)}>
+                      <IonButton size="small" color="warning" onClick={() => onDecrementar(producto.id)}>
                         <IonIcon icon={removeOutline} />
                       </IonButton>
                       <IonInput readonly value={producto.cantidad} className="quantity-input" />
-                      <IonButton size="small" onClick={() => onIncrementar(producto.id)}>
+                      <IonButton size="small" color="warning" onClick={() => onIncrementar(producto.id)}>
                         <IonIcon icon={addOutline} />
                       </IonButton>
                       <IonButton size="small" color="danger" onClick={() => onEliminar(producto.id)}>
@@ -103,20 +102,20 @@ const Carrito: React.FC = () => {
                 </IonCardContent>
               </IonCard>
             ))}
-
-            <IonCard>
+            <IonCard className="resumen-card">
               <IonCardContent>
-                <h2>Resumen</h2>
-                <p>Subtotal: ${subtotal.toLocaleString()}</p>
-                <h3>Total a pagar: ${subtotal.toLocaleString()}</h3>
-                <IonButton expand="block" color="primary" onClick={onPagar}>
+                <div className="resumen-info">
+                  <h2 className="resumen-titulo"><strong>Resumen</strong></h2>
+                  <p className="resumen-texto">Subtotal: ${subtotal.toLocaleString()}</p>
+                  <h3 className="resumen-total">Total a pagar: ${subtotal.toLocaleString()}</h3>
+                </div>
+                <IonButton className="btn-pagar" color="primary" onClick={onPagar}>
                   Pagar
                 </IonButton>
               </IonCardContent>
             </IonCard>
           </>
         )}
-        <FooterHome />
       </IonContent>
     </IonPage>
   );

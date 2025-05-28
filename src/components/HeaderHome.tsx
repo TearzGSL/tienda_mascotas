@@ -1,25 +1,12 @@
-import React, { useState, MouseEvent as ReactMouseEvent } from 'react';
+import React, { useState,  useEffect, MouseEvent as ReactMouseEvent } from 'react';
 import { useHistory } from 'react-router-dom';
-import {
-  IonIcon,
-  IonPopover,
-  IonList,
-  IonItem,
-  IonLabel,
-  IonAlert
-} from '@ionic/react';
-import {
-  cartOutline,
-  searchOutline,
-  homeOutline,
-  newspaperOutline,
-  locationOutline,
-  personCircle,
-  logOutOutline,
-} from 'ionicons/icons';
+import {IonIcon,IonPopover,IonList,IonItem,IonLabel,IonAlert} from '@ionic/react';
+import {cartOutline,searchOutline,homeOutline,newspaperOutline,locationOutline,personCircle,logOutOutline,} from 'ionicons/icons';
 import './HeaderHome.css';
 import { useAuth } from '../backend/AuthContext';
 import { useCart } from '../backend/CartContext';
+import { db } from '../backend/firebaseConfig';
+import { doc, getDoc } from 'firebase/firestore';
 
 const HeaderHome: React.FC = () => {
   const history = useHistory();
@@ -27,8 +14,23 @@ const HeaderHome: React.FC = () => {
   const [showPopover, setShowPopover] = useState(false);
   const [event, setEvent] = useState<MouseEvent | undefined>(undefined);
   const [showLoginAlert, setShowLoginAlert] = useState(false);
+  const [nombreUsuario, setNombreUsuario] = useState('');
 
-  const { productos } = useCart(); // Aquí usas 'productos', no 'cartItems'
+  const { productos } = useCart();
+
+  useEffect(() => {
+    const fetchNombre = async () => {
+      if (user) {
+        const docRef = doc(db, 'usuarios', user.uid);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          setNombreUsuario(data.nombres?.trim() || 'Usuario');
+        }
+      }
+    };
+    fetchNombre();
+  }, [user]);
 
   const handleLogout = async () => {
     await logout();
@@ -46,7 +48,7 @@ const HeaderHome: React.FC = () => {
 
   return (
     <div className="header-home">
-      {/* Sección superior */}
+      {/* Seccion superior */}
       <section className="header-top-section">
         {/* Logo */}
         <div className="header-logo-container">
@@ -57,7 +59,7 @@ const HeaderHome: React.FC = () => {
           />
         </div>
 
-        {/* Barra de búsqueda */}
+        {/* Barra de busqueda */}
         <div className="search-bar-container">
           <input
             type="text"
@@ -99,7 +101,7 @@ const HeaderHome: React.FC = () => {
               >
                 <IonList>
                   <IonItem lines="none">
-                    <IonLabel>{user.displayName || user.email}</IonLabel>
+                    <IonLabel>{nombreUsuario}</IonLabel>
                   </IonItem>
                   <IonItem button onClick={handleLogout}>
                     <IonIcon icon={logOutOutline} slot="start" />
@@ -121,7 +123,7 @@ const HeaderHome: React.FC = () => {
         </div>
       </section>
 
-      {/* Barra de navegación inferior */}
+      {/* Barra de navegacion inferior */}
       <nav className="bottom-nav">
         <ul className="nav-list">
           {[
@@ -140,7 +142,7 @@ const HeaderHome: React.FC = () => {
         </ul>
       </nav>
 
-      {/* Alerta si no está logueado */}
+      {/* Alerta si no esta logueado */}
       <IonAlert
         isOpen={showLoginAlert}
         onDidDismiss={() => {

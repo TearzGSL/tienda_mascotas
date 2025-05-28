@@ -34,3 +34,61 @@
   width: 40px;
   text-align: center;
 }
+
+.titulo-principal {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.usuario-nombre {
+  color: #ffc107;
+}
+
+.resumen-card {
+  background-color: #fdfdfd;
+  padding: 1.5rem;
+  font-size: 1.3rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  margin-top: 1.5rem;
+}
+
+.resumen-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.resumen-titulo {
+  font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+  text-align: left;
+}
+
+.resumen-texto {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.resumen-total {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #000;
+  text-align: left;
+}
+
+.btn-pagar {
+  margin: 0 auto;        
+  width: 200px;          
+  display: block;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 8px;    
+}

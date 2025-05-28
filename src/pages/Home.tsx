@@ -1,8 +1,7 @@
 import { IonContent, IonHeader, IonPage, IonToolbar } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import HeaderHome from '../components/HeaderHome';
-import FooterHome from '../components/FooterHome'; // Importa el Footer
-import './Home.css';
+import FooterHome from '../components/FooterHome';
 
 const Home: React.FC = () => {
   return (
@@ -14,7 +13,7 @@ const Home: React.FC = () => {
       </IonHeader>
       <IonContent fullscreen style={{ backgroundColor: '#ffffff' }}>
         <ExploreContainer />
-        <FooterHome /> {/* Aquí se agrega el footer */}
+        <FooterHome />
       </IonContent>
     </IonPage>
   );

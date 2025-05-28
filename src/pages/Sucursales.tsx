@@ -1,14 +1,5 @@
 import React, { useState } from 'react';
-import {
-  IonPage,
-  IonContent,
-  IonItem,
-  IonSelect,
-  IonSelectOption,
-  IonInput,
-  IonButton,
-  IonText
-} from '@ionic/react';
+import {IonPage,IonContent,IonItem,IonSelect,IonSelectOption,IonInput,IonButton,IonText} from '@ionic/react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';

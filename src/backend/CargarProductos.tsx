@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { subirProductos } from '../backend/uploadProductos'; // ajusta la ruta si es necesario
+import { subirProductos } from '../backend/uploadProductos'; 
 
 export default function CargarProductos() {
   useEffect(() => {

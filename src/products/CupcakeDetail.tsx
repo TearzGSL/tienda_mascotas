@@ -1,26 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import {
-  IonPage,
-  IonContent,
-  IonButton,
-  IonIcon,
-  IonSpinner,
-  IonAlert
-} from '@ionic/react';
+import {IonPage,IonContent,IonButton,IonIcon,IonSpinner,IonAlert} from '@ionic/react';
 import { star, starHalf, starOutline } from 'ionicons/icons';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../backend/firebaseConfig';
 import { useParams, useHistory } from 'react-router-dom';
 import './CupcakeDetail.css';
-
 import HeaderHome from "../components/HeaderHome";
 import FooterHome from '../components/FooterHome';
-
 import { useCart } from '../backend/CartContext';
 import { useAuth } from '../backend/AuthContext';
 
 interface Producto {
-  id?: string;  // id ahora opcional
+  id?: string; 
   nombre: string;
   descripcion: string;
   imagen: string;
@@ -177,7 +168,6 @@ const CupcakeDetail: React.FC = () => {
           message="Debes iniciar sesión primero."
           buttons={['OK']}
         />
-
         <FooterHome />
       </IonContent>
     </IonPage>

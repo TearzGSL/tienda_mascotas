@@ -5,7 +5,6 @@ import './Productos.css';
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 import HeaderHome from "../components/HeaderHome";
 import FooterHome from '../components/FooterHome';
-
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../backend/firebaseConfig'; 
 
