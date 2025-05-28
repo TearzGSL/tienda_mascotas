@@ -43,7 +43,7 @@
 
 .register-input {
   margin-bottom: 12px;
-  padding: 0; /* Ionic maneja el padding interno con sus variables */
+  padding: 0;
   background-color: #fff;
   border: 2px solid #f7c700;
   border-radius: 20px;
@@ -151,4 +151,23 @@
   width: 100%; 
   display: block;
   font-size: 17px;  
+}
+
+.password-container {
+  position: relative;
+}
+
+.password-input {
+  padding-right: 3rem;
+}
+
+.password-toggle-icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px;
+  color: rgba(0, 0, 0, 0.4); 
+  cursor: pointer;
+  z-index: 10;
 }

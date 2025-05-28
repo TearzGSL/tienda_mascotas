@@ -1,13 +1,30 @@
 import React, { useState } from "react";
-import {IonPage,IonContent,IonInput,IonButton,IonLabel,IonCheckbox,IonAlert,} from "@ionic/react";
-import {createUserWithEmailAndPassword,signInWithPopup,GoogleAuthProvider,FacebookAuthProvider,OAuthProvider,} from "firebase/auth";
+import {
+  IonPage,
+  IonContent,
+  IonInput,
+  IonButton,
+  IonLabel,
+  IonCheckbox,
+  IonAlert,
+} from "@ionic/react";
+import {
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
+  FacebookAuthProvider,
+  OAuthProvider,
+} from "firebase/auth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { auth, db } from "../backend/firebaseConfig";
 import HeaderHome from "../components/HeaderHome";
 import { useHistory } from "react-router-dom";
+import { eye, eyeOff } from 'ionicons/icons';
+import { IonIcon } from '@ionic/react';
 import "./Register.css";
 
 const Register: React.FC = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const [nombres, setNombres] = useState("");
   const [apellidos, setApellidos] = useState("");
   const [fechaNacimiento, setFechaNacimiento] = useState("");
@@ -65,7 +82,7 @@ const Register: React.FC = () => {
     }
 
     if (!terminosAceptados) {
-      setAlertHeader("Error");
+      setAlertHeader("Advertencia");
       setAlertMessage("Debes aceptar los términos y condiciones.");
       setIsSuccess(false);
       setShowAlert(true);
@@ -88,6 +105,8 @@ const Register: React.FC = () => {
         fecha_registro: new Date(),
         proveedor: "correo",
       });
+
+      await auth.signOut();
 
       setAlertHeader("¡Éxito!");
       setAlertMessage("¡Usuario registrado con éxito!");
@@ -191,7 +210,7 @@ const Register: React.FC = () => {
   };
 
   const handleMicrosoftRegister = async () => {
-    const provider = new OAuthProvider('microsoft.com');
+    const provider = new OAuthProvider("microsoft.com");
 
     try {
       const result = await signInWithPopup(auth, provider);
@@ -291,14 +310,20 @@ const Register: React.FC = () => {
               value={celular}
               onIonChange={(e) => setCelular(e.detail.value!)}
             />
-            <IonInput
-              className="register-input"
-              placeholder="  Contraseña"
-              type="password"
-              value={password}
-              onIonChange={(e) => setPassword(e.detail.value!)}
-            />
-
+            <div className="password-container">
+              <IonInput
+                className="register-input password-input"
+                placeholder="  Contraseña"
+                type={showPassword ? "text" : "password"}
+                value={password}
+                onIonChange={(e) => setPassword(e.detail.value!)}
+              />
+              <IonIcon
+                icon={showPassword ? eyeOff : eye}
+                onClick={() => setShowPassword(!showPassword)}
+                className="password-toggle-icon"
+              />
+            </div>
             <div style={{ display: "flex", alignItems: "center", marginTop: "0.5rem" }}>
               <IonCheckbox
                 checked={terminosAceptados}
