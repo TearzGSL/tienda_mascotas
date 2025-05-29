@@ -3,7 +3,6 @@
   font-family: sans-serif;
 }
 
-/* Sección Superior */
 .footer-top {
   background-color: #333642;
   color: white;
@@ -68,7 +67,6 @@
   color: #ffffff;
 }
 
-/* Sección Media */
 .footer-middle {
   background-color: #333642;
   color: white;
@@ -94,7 +92,6 @@
   height: auto;
 }
 
-/* Sección Inferior */
 .footer-bottom {
   background-color: #FBE587;
   color: #333;

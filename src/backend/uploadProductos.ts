@@ -1,6 +1,6 @@
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../backend/firebaseConfig";
-
+ 
 export const agregarProductosConId = async () => {
   const productos = [
     {

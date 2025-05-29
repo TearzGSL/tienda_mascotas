@@ -14,7 +14,7 @@ interface StoreData {
 const storeCoordinates: { [key: string]: { lat: number; lng: number } } = {
   'Tienda Centro': { lat: 4.60971, lng: -74.08175 },
   'Tienda Norte': { lat: 4.67677, lng: -74.04835 },
-  'Tienda Sur': { lat: 4.60971, lng: -74.15 },
+  'Tienda Sur': { lat: 4.5781648, lng: -74.2233803 },
   'Tienda Principal': { lat: 4.43889, lng: -75.23221 },
   'Tienda Centro Comercial': { lat: 4.438, lng: -75.232 },
   'Tienda Poblado': { lat: 6.21015, lng: -75.57239 },
@@ -26,7 +26,7 @@ const storeCoordinates: { [key: string]: { lat: number; lng: number } } = {
 const storeAddresses: { [key: string]: string } = {
   'Tienda Centro': 'Cra. 7 #12-34, Bogotá',
   'Tienda Norte': 'Calle 120 #10-15, Bogotá',
-  'Tienda Sur': 'Av. Caracas #45-60 Sur, Bogotá',
+  'Tienda Sur': 'a, Cra. 5 #7b-12 7b-62, Soacha, Cundinamarca',
   'Tienda Principal': 'Calle 60 #6-21, Ibagué',
   'Tienda Centro Comercial': 'Centro Comercial Multicentro, Ibagué',
   'Tienda Poblado': 'Calle 10 #43A-45, Medellín',

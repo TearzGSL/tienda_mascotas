@@ -48,9 +48,7 @@ const HeaderHome: React.FC = () => {
 
   return (
     <div className="header-home">
-      {/* Seccion superior */}
       <section className="header-top-section">
-        {/* Logo */}
         <div className="header-logo-container">
           <img
             src="/src/assets/logo.png"
@@ -58,8 +56,6 @@ const HeaderHome: React.FC = () => {
             className="header-logo"
           />
         </div>
-
-        {/* Barra de busqueda */}
         <div className="search-bar-container">
           <input
             type="text"
@@ -70,18 +66,13 @@ const HeaderHome: React.FC = () => {
             <IonIcon icon={searchOutline} className="search-icon" />
           </button>
         </div>
-
-        {/* Acciones de usuario */}
         <div className="user-actions-container">
-          {/* Carrito */}
           <div className="cart-button" onClick={handleCartClick} style={{ cursor: 'pointer' }}>
             <IonIcon icon={cartOutline} className="cart-icon" />
             <span className="cart-total">
               {productos.length}
             </span>
           </div>
-
-          {/* Usuario autenticado */}
           {user ? (
             <>
               <button
@@ -123,7 +114,6 @@ const HeaderHome: React.FC = () => {
         </div>
       </section>
 
-      {/* Barra de navegacion inferior */}
       <nav className="bottom-nav">
         <ul className="nav-list">
           {[
@@ -141,8 +131,6 @@ const HeaderHome: React.FC = () => {
           ))}
         </ul>
       </nav>
-
-      {/* Alerta si no esta logueado */}
       <IonAlert
         isOpen={showLoginAlert}
         onDidDismiss={() => {

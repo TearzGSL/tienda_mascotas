@@ -3,7 +3,6 @@ import './FooterHome.css';
 const FooterHome: React.FC = () => {
   return (
     <footer className="footer-container">
-      {/* Sección Superior */}
       <div className="footer-top">
         <div className="footer-logo">
           <img src="/src/assets/logo.png" alt="Logo DulceMente de Pelos" className="footer-logo-large" />
@@ -65,7 +64,6 @@ const FooterHome: React.FC = () => {
         </div>
       </div>
 
-      {/* Sección Media - Métodos de pago */}
       <div className="footer-middle">
         <span>¡Haz tus compras con estos Medios de Pago!</span>
         <div className="payment-logos">
@@ -79,7 +77,6 @@ const FooterHome: React.FC = () => {
         <span>Pago 100% seguros con Mercado Pago</span>
       </div>
 
-      {/* Sección Inferior */}
       <div className="footer-bottom">
         <div className="footer-bottom-logo">
           <img src="/src/assets/logo.png" alt="Logo pequeño" className="footer-logo-small" />

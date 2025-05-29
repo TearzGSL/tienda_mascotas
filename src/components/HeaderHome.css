@@ -12,6 +12,7 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 10px;
+  flex-wrap: wrap;
 }
 
 .header-logo-container {
@@ -120,6 +121,7 @@
   margin: 0;
   padding: 0;
   color: #333;
+  flex-wrap: wrap;
 }
 
 .nav-item {
@@ -140,6 +142,45 @@
   font-size: 20px;
 }
 
+@media (max-width: 767px) {
+  .header-top-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .header-logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .search-bar-container {
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    gap: 8px;
+  }
+
+  .search-input, .search-button {
+    width: 100%;
+    border-radius: 30px;
+  }
+
+  .user-actions-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cart-button, .auth-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-list {
+    justify-content: center;
+    gap: 20px;
+  }
+}
 @media (min-width: 768px) {
   .header-top-section {
     flex-direction: row;

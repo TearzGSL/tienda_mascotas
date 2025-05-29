@@ -1,20 +1,6 @@
 import React, { useState } from "react";
-import {
-  IonPage,
-  IonContent,
-  IonInput,
-  IonButton,
-  IonLabel,
-  IonCheckbox,
-  IonAlert,
-} from "@ionic/react";
-import {
-  createUserWithEmailAndPassword,
-  signInWithPopup,
-  GoogleAuthProvider,
-  FacebookAuthProvider,
-  OAuthProvider,
-} from "firebase/auth";
+import {IonPage,IonContent,IonInput,IonButton,IonLabel,IonCheckbox,IonAlert,} from "@ionic/react";
+import {createUserWithEmailAndPassword,signInWithPopup,GoogleAuthProvider,FacebookAuthProvider,OAuthProvider,} from "firebase/auth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { auth, db } from "../backend/firebaseConfig";
 import HeaderHome from "../components/HeaderHome";

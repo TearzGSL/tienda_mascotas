@@ -2,7 +2,6 @@ import React, { useState, useMemo } from 'react';
 import {IonPage,IonContent,IonInput,IonButton} from '@ionic/react';
 import { useCart } from '../backend/CartContext';
 import HeaderHome from '../components/HeaderHome';
-import FooterHome from '../components/FooterHome';
 import './Pagar.css';
 
 const metodos = [

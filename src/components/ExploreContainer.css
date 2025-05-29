@@ -6,7 +6,6 @@
   align-items: center;
 }
 
-/* Bloque de texto de bienvenida */
 .bienvenida {
   text-align: center;
   margin-bottom: 30px;
@@ -25,7 +24,6 @@
   margin-top: 8px;
 }
 
-/* Fila de imágenes */
 .row {
   display: flex;
   justify-content: center;
@@ -44,7 +42,6 @@
   align-items: center;
 }
 
-/* Imagen de la pata */
 .pata-container {
   width: 300px;
   height: 300px;
@@ -59,7 +56,6 @@
   object-fit: contain;
 }
 
-/* Imagen del cachorro */
 .cachorro-container {
   width: 300px;
   height: 300px;
@@ -71,7 +67,6 @@
   object-fit: contain;
 }
 
-/* Botones */
 .botones-container {
   display: flex;
   justify-content: center;
