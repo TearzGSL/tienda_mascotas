@@ -51,11 +51,11 @@ const SobreNosotros: React.FC = () => {
           {/*video*/}
           <div className="video-section">
             <h3 className="video-title">
-              Pitch del Proyecto
+              Storytelling de la marca
             </h3>
             <div className="video-container">
               <iframe
-                src="https://www.youtube.com/embed/QLOyHnaz4AE"
+                src="https://www.youtube.com/embed/EmLH0752qqg"
                 title="Pitch del Proyecto"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
