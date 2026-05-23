@@ -4,6 +4,10 @@ import './Blog.css';
 import HeaderHome from "../components/HeaderHome";
 import FooterHome from '../components/FooterHome';
 
+import usuario from '../assets/usuario.png';
+import perfil1 from '../assets/perropastel.jpg';
+import perfil2 from '../assets/perrogalletas.jpg';
+
 const Blog: React.FC = () => {
   const comentarios = [
     {
@@ -13,8 +17,8 @@ const Blog: React.FC = () => {
       estrellas: 5,
       titulo: 'Excelente producto',
       texto: 'A mi mascota le encantan estas galletas porque son muy crujientes y saludables.',
-      fotoPerfil: '/src/assets/usuario.png',
-      fotoMascota: '/src/assets/perropastel.jpg'
+      fotoPerfil: usuario,
+      fotoMascota: perfil1
     },
     {
       id: 2,
@@ -23,8 +27,8 @@ const Blog: React.FC = () => {
       estrellas: 5,
       titulo: 'Excelente producto',
       texto: 'Rocky los cumplió muy feliz gracias a dulcemente de pelos.',
-      fotoPerfil: '/src/assets/usuario.png',
-      fotoMascota: '/src/assets/perrogalletas.jpg'
+      fotoPerfil: usuario,
+      fotoMascota: perfil2
     }
   ];
 

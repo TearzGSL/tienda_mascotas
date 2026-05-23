@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom';
 import { useAuth } from '../backend/AuthContext';
 import { db } from '../backend/firebaseConfig';
 import { doc, getDoc } from 'firebase/firestore';
+import perrito from '../assets/perrito.png';
+import huellita from '../assets/huella.jpg';
 
 const ExploreContainer: React.FC = () => {
   const history = useHistory();
@@ -36,7 +38,7 @@ const ExploreContainer: React.FC = () => {
         <div className="col">
           <div className="pata-container">
             <img
-              src="/src/assets/huella.jpg"
+              src={huellita}
               alt="Pata decorativa"
               className="pata-img"
             />
@@ -46,7 +48,7 @@ const ExploreContainer: React.FC = () => {
         <div className="col">
           <div className="cachorro-container">
             <img
-              src="/src/assets/perrito.png"
+              src={perrito}
               alt="Cachorro saludando"
               className="cachorro-img"
             />

@@ -3,6 +3,8 @@ import { IonContent, IonPage } from '@ionic/react';
 import './SobreNostros.css';
 import HeaderHome from "../components/HeaderHome";
 import FooterHome from '../components/FooterHome';
+
+import perros from '../assets/perros.jpg';
 const SobreNosotros: React.FC = () => {
   return (
     <IonPage>
@@ -12,7 +14,7 @@ const SobreNosotros: React.FC = () => {
           {/* Sección principal */}
           <div className="header">
             <img
-              src="/src/assets/perros.jpg"
+              src={perros}
               alt="Mascotas"
               className="pets-image"
             />

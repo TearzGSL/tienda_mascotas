@@ -1,11 +1,25 @@
 import React from 'react';
 import './FooterHome.css';
+import logo from '../assets/logo.png';
+
+import visa from '../assets/visa.jpg';
+import mastercard from '../assets/mastercard.png';
+import american from '../assets/americanexpress.png';
+import pse from '../assets/pse.png';
+import nequi from '../assets/nequi.jpg';
+import mercado from '../assets/mercadopago.png';
+
+import instagram from '../assets/instagram.png';
+import facebook from '../assets/facebook.png';
+import wasa from '../assets/whatsapp.png';
+import tiktok from '../assets/tiktok.png';
+
 const FooterHome: React.FC = () => {
   return (
     <footer className="footer-container">
       <div className="footer-top">
         <div className="footer-logo">
-          <img src="/src/assets/logo.png" alt="Logo DulceMente de Pelos" className="footer-logo-large" />
+          <img src={logo} alt="Logo DulceMente de Pelos" className="footer-logo-large" />
         </div>
 
         <div className="footer-links">
@@ -67,19 +81,19 @@ const FooterHome: React.FC = () => {
       <div className="footer-middle">
         <span>¡Haz tus compras con estos Medios de Pago!</span>
         <div className="payment-logos">
-          <img src="/src/assets/visa.jpg" alt="Visa" />
-          <img src="/src/assets/mastercard.png" alt="Mastercard" />
-          <img src="/src/assets/americanexpress.png" alt="American Express" />
-          <img src="/src/assets/pse.png" alt="PSE" />
-          <img src="/src/assets/nequi.jpg" alt="Nequi" />
-          <img src="/src/assets/mercadopago.png" alt="Mercado Pago" />
+          <img src={visa} alt="Visa" />
+          <img src={mastercard} alt="Mastercard" />
+          <img src={american} alt="American Express" />
+          <img src={pse} alt="PSE" />
+          <img src={nequi} alt="Nequi" />
+          <img src={mercado} alt="Mercado Pago" />
         </div>
         <span>Pago 100% seguros con Mercado Pago</span>
       </div>
 
       <div className="footer-bottom">
         <div className="footer-bottom-logo">
-          <img src="/src/assets/logo.png" alt="Logo pequeño" className="footer-logo-small" />
+          <img src={logo} alt="Logo pequeño" className="footer-logo-small" />
         </div>
         <div className="footer-bottom-links">
           <a href="#">Responsabilidad Social</a>
@@ -88,16 +102,16 @@ const FooterHome: React.FC = () => {
         </div>
         <div className="footer-social-icons">
         <a href="https://www.instagram.com/dulcemente_depelos?igsh=MXdwNGxpZGZ3cnB5ZA==" target="_blank" rel="noopener noreferrer">
-            <img src="/src/assets/instagram.png" alt="Instagram" />
+            <img src={instagram} alt="Instagram" />
         </a>
         <a href="#" target="_blank" rel="noopener noreferrer">
-            <img src="/src/assets/facebook.png" alt="Facebook" />
+            <img src={facebook} alt="Facebook" />
         </a>
         <a href="https://api.whatsapp.com/send?phone=573118775837" target="_blank" rel="noopener noreferrer">
-            <img src="/src/assets/whatsapp.png" alt="WhatsApp" />
+            <img src={wasa} alt="WhatsApp" />
         </a>
         <a href="#" target="_blank" rel="noopener noreferrer">
-            <img src="/src/assets/tiktok.png" alt="TikTok" />
+            <img src={tiktok} alt="TikTok" />
         </a>
         </div>
       </div>

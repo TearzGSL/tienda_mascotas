@@ -9,6 +9,11 @@ import { eye, eyeOff } from 'ionicons/icons';
 import { IonIcon } from '@ionic/react';
 import "./Register.css";
 
+import google from '../assets/google.jpg';
+import facebook from '../assets/facebook1.jpg';
+import microsoft from '../assets/microsoft.png';
+import perrito from '../assets/perrito.png';
+
 const Register: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [nombres, setNombres] = useState("");
@@ -335,19 +340,19 @@ const Register: React.FC = () => {
                 }}
               >
                 <img
-                  src="/src/assets/google.jpg"
+                  src={google}
                   alt="Google"
                   style={{ width: "40px", cursor: "pointer" }}
                   onClick={handleGoogleRegister}
                 />
                 <img
-                  src="/src/assets/facebook1.jpg"
+                  src={facebook}
                   alt="Facebook"
                   style={{ width: "40px", cursor: "pointer" }}
                   onClick={handleFacebookRegister}
                 />
                 <img
-                  src="/src/assets/microsoft.png"
+                  src={microsoft}
                   alt="Microsoft"
                   style={{ width: "40px", cursor: "pointer" }}
                   onClick={handleMicrosoftRegister}
@@ -372,7 +377,7 @@ const Register: React.FC = () => {
           </div>
 
           <div className="register-image">
-            <img src="/src/assets/perrito.png" alt="Perrito" />
+            <img src={perrito} alt="Perrito" />
           </div>
         </div>
 

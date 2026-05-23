@@ -4,13 +4,20 @@ import { useCart } from '../backend/CartContext';
 import HeaderHome from '../components/HeaderHome';
 import './Pagar.css';
 
+import visa from '../assets/visa.jpg';
+import master from '../assets/mastercard.png';
+import american from '../assets/americanexpress.png';
+import pse from '../assets/pse.png';
+import nequi from '../assets/nequi.jpg';
+import mercado from '../assets/mercadopago.png';
+
 const metodos = [
-  { value: 'visa', label: 'Visa', img: '/src/assets/visa.jpg' },
-  { value: 'mastercard', label: 'Mastercard', img: '/src/assets/mastercard.png' },
-  { value: 'amex', label: 'American Express', img: '/src/assets/americanexpress.png' },
-  { value: 'pse', label: 'PSE', img: '/src/assets/pse.png' },
-  { value: 'nequi', label: 'Nequi', img: '/src/assets/nequi.jpg' },
-  { value: 'mercadopago', label: 'MercadoPago', img: '/src/assets/mercadopago.png' },
+  { value: 'visa', label: 'Visa', img: visa },
+  { value: 'mastercard', label: 'Mastercard', img: master },
+  { value: 'amex', label: 'American Express', img: american },
+  { value: 'pse', label: 'PSE', img: pse },
+  { value: 'nequi', label: 'Nequi', img: nequi },
+  { value: 'mercadopago', label: 'MercadoPago', img: mercado },
 ];
 
 const Pagar: React.FC = () => {

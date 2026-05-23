@@ -8,6 +8,8 @@ import { useCart } from '../backend/CartContext';
 import { db } from '../backend/firebaseConfig';
 import { doc, getDoc } from 'firebase/firestore';
 
+import logo from '../assets/logo.png';
+
 const HeaderHome: React.FC = () => {
   const history = useHistory();
   const { user, logout } = useAuth();
@@ -51,7 +53,7 @@ const HeaderHome: React.FC = () => {
       <section className="header-top-section">
         <div className="header-logo-container">
           <img
-            src="/src/assets/logo.png"
+            src={logo}
             alt="Dulcemente ¡de pelos!"
             className="header-logo"
           />

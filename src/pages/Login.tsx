@@ -7,6 +7,11 @@ import { useHistory } from "react-router-dom";
 import {signInWithEmailAndPassword,signInWithPopup,GoogleAuthProvider,} from "firebase/auth";
 import { auth } from "../backend/firebaseConfig";
 
+import logo from '../assets/logo.png';
+import facebook from '../assets/facebook1.jpg';
+import micro from '../assets/microsoft.png';
+import google from '../assets/google.jpg';
+
 const Login: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
@@ -52,7 +57,7 @@ const Login: React.FC = () => {
         <div className="login-wrapper">
           <div className="login-box">
             <img
-              src="/src/assets/logo.png"
+              src={logo}
               alt="Logo"
               className="login-logo"
             />
@@ -100,14 +105,14 @@ const Login: React.FC = () => {
             <p className="or-text">o iniciar sesión con</p>
 
             <div className="social-login">
-              <img src="/src/assets/facebook1.jpg" alt="Facebook" />
+              <img src={facebook} alt="Facebook" />
               <img
-                src="/src/assets/google.jpg"
+                src={logo}
                 alt="Google"
                 onClick={handleGoogleLogin}
                 style={{ cursor: "pointer" }}
               />
-              <img src="/src/assets/microsoft.png" alt="Microsoft" />
+              <img src={micro} alt="Microsoft" />
             </div>
 
             <p
